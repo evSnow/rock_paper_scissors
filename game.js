@@ -6,6 +6,7 @@ let repeat=1;
 function randomCpu(){
     return Math.floor(Math.random()*3)+1;
 }
+
 function getPlayerChoice(playerChoice){
     playerChoice=prompt("plese enter a number 1, 2, 3");
     playerChoice=parseInt(playerChoice);
@@ -26,6 +27,8 @@ function getPlayerChoice(playerChoice){
 }
     return playerChoice;
 }
+
+
 console.log(randomCpu());
 playerChoice=getPlayerChoice(getPlayerChoice);
-console.log(playerChoice)
+console.log(playerChoice);
