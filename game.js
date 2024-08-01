@@ -53,7 +53,68 @@ function compareChoice(playerChoice,cpuChoice){
     }
 }
 
-while(1==1){ 
+
+const buttons = document.querySelectorAll("button");
+const container = document.querySelector("#container");
+const win = document.createElement('h2');
+const display = document.createElement('h3');
+
+win.classList.add("win");
+display.classList.add("display");
+container.appendChild(win);
+container.appendChild(display);
+
+buttons.forEach((button) => {
+
+button.addEventListener("click", () => {
+//button.id;
+playerChoice=parseInt(button.id);
+cpuChoice=randomCpu();
+console.log(button.id);
+console.log(cpuChoice);
+whoWon=compareChoice(playerChoice,cpuChoice);
+if(whoWon===1){
+    player=1+player;
+    win.textContent=" who won: player"
+    display.textContent="player score: "+player+" cpu score: "+cpu;  
+    container.appendChild(win);
+    container.appendChild(display);
+}
+else if(whoWon===2){
+    cpu=1+cpu;
+    win.textContent="last win: cpu"
+    display.textContent="player score: "+player+" cpu score: "+cpu;
+    container.appendChild(win);
+    container.appendChild(display);
+}
+else if(whoWon===3) { 
+win.textContent="last win: tied";
+display.textContent="player score: "+player+" cpu score: "+cpu;
+container.appendChild(win);
+container.appendChild(display);
+}
+if(player===5){
+    alert("player win reset score");
+    player=0;
+    cpu=0;
+    display.textContent="player score: "+player+" cpu score: "+cpu;
+}
+else if(cpu===5){
+    alert("cpu win reset score");
+    player=0;
+    cpu=0;
+    display.textContent="player score: "+player+" cpu score: "+cpu;
+}
+});
+});
+/*
+playerChoice=parseInt(button.id);
+cpuChoice=randomCpu();
+
+whoWon=compareChoice(playerChoice,cpuChoice);
+
+
+
 cpuChoice=randomCpu();
                         //console.log(cpuChoice);
 playerChoice=getPlayerChoice(getPlayerChoice);
@@ -74,10 +135,9 @@ if(player===5){
     alert("game is over the winer is player\n Thamks for playing");
     break;
     }
-    else if(cpu===5){
+else if(cpu===5){
         alert("Game is over and the cpu won\n Thamks for playing")
         break;
     }
 }
-
-}
+    */
